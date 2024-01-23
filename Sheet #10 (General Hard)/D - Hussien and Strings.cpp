@@ -1,9 +1,5 @@
 #include <iostream>
-#include <cmath>
-#include <vector>
-#include <array>
 #include <string>
-#include <algorithm>
 using namespace std;
 string algorithm(string str1, string str2) {
 	string original2 = str2;
