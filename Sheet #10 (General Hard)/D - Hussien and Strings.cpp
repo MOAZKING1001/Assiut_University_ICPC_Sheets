@@ -17,5 +17,5 @@ int main() {
 	string str1, str2;
 	cin >> str1;
 	cin >> str2;
-	cout << algorithm(str1, str2);
+	cout << (algorithm(str1, str2) ? "YES" : "NO");
 }
