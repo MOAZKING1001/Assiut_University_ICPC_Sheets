@@ -1,7 +1,12 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int algorithm(int students, int subjects) {
+int algorithm() {
+	int students, subjects;
+	string temp;
+	getline(cin, temp);
+	students = temp[0] - '0';
+	subjects = temp[2] - '0';
 	vector<int> marks;
 	vector<int> max_marks;
 	string marks_per_student_holder;
@@ -14,11 +19,11 @@ int algorithm(int students, int subjects) {
 		}
 	}
 	for (int i = 0; i < subjects; i++) {
-		int temp_max = 0;
+		int max_temp = 0;
 		for (int j = i, k = 0; k < students; j += subjects, k++) {
-			if (marks.at(j) > temp_max) temp_max = marks.at(j);
+			if (marks.at(j) > max_temp) max_temp = marks.at(j);
 		}
-		max_marks.push_back(temp_max);
+		max_marks.push_back(max_temp);
 	}
 	for (int i = 0, j = 0; i < students; i++, j += subjects) {
 		int passed_temp = 0;
@@ -30,5 +35,5 @@ int algorithm(int students, int subjects) {
 	return students_passed;
 }
 int main() {
-	cout << "The Number of Succesful Students is: " << algorithm(3, 3);
+	cout << algorithm();
 }
