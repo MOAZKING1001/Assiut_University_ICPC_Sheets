@@ -8,7 +8,6 @@ string algorithm() {
 	vector<char> coins { 'A', 'B', 'C' };
 	string result = "";
 	for (int i = 0; i < 3; i++) {
-		cout << "Enter Evlauation " << i + 1 << ": " << "\n";
 		string temp;
 		getline(cin, temp);
 		temp[0] = toupper(temp[0]);
