@@ -9,5 +9,7 @@ int algorithm(int num) {
 	return stoi(temp);
 }
 int main() {
-	cout << algorithm(27);
+	int num;
+	cin >> num;
+	cout << algorithm(num);
 }
