@@ -8,5 +8,7 @@ string algorithm(string text) {
 	return text;
 }
 int main() {
-	cout << algorithm("a?z?");
+	string input;
+	getline(cin, input);
+	cout << algorithm(input);
 }
