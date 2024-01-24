@@ -11,8 +11,7 @@ int algorithm() {
 	vector<int> max_marks;
 	string marks_per_student_holder;
 	int students_passed = 0;
-	for (int i = 1; i <= students; i++) {
-		cout << "Enter Subjects Mark's For Student " << i << "\n";
+	for (int i = 0; i < students; i++) {
 		cin >> marks_per_student_holder;
 		for (int j = 0; j < subjects; j++) {
 			marks.push_back(marks_per_student_holder[j] - '0');
