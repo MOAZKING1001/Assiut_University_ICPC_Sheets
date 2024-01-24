@@ -1,9 +1,5 @@
 #include <iostream>
-#include <cmath>
-#include <vector>
-#include <array>
 #include <string>
-#include <algorithm>
 using namespace std;
 int algorithm(int num) {
 	string temp = to_string(num);
