@@ -3,31 +3,23 @@
 #include <string>
 using namespace std;
 int main() {
-	long long students, subjects;
-	cin >> students >> subjects;
-	vector<long long> marks;
-	vector<long long> max_marks;
-	string marks_per_student_holder;
-	long long students_passed = 0;
-	for (long long i = 1; i <= students; i++) {
-		cin >> marks_per_student_holder;
-		for (long long j = 0; j < subjects; j++) {
-			marks.push_back(marks_per_student_holder[j] - '0');
-		}
+	vector<string> expresions;
+	vector<int> evaluations{ 0, 0, 0 };
+	vector<char> coins{ 'A', 'B', 'C' };
+	string result = "";
+	for (int i = 0; i < 3; i++) {
+		string temp;
+		getline(cin, temp);
+		temp[0] = toupper(temp[0]);
+		temp[2] = toupper(temp[2]);
+		expresions.push_back(temp);
 	}
-	for (long long i = 0; i < subjects; i++) {
-		int temp_max = 0;
-		for (long long j = i, k = 0; k < students; j += subjects, k++) {
-			if (marks.at(j) > temp_max) temp_max = marks.at(j);
-		}
-		max_marks.push_back(temp_max);
+	for (int i = 0; i < expresions.size(); i++) {
+		if (expresions.at(i)[1] == '>') evaluations.at((find(coins.begin(), coins.end(), expresions.at(i)[0])) - coins.begin())++;
+		else if (expresions.at(i)[1] == '<') evaluations.at((find(coins.begin(), coins.end(), expresions.at(i)[2])) - coins.begin())++;
 	}
-	for (long long i = 0, j = 0; i < students; i++, j += subjects) {
-		int passed_temp = 0;
-		for (long long k = 0, l = j; k < subjects; k++, l++) {
-			if (marks.at(l) == max_marks.at(k)) passed_temp++;
-		}
-		if (passed_temp) students_passed++;
-	}
-	cout << students_passed;
+	result += coins.at(find(evaluations.begin(), evaluations.end(), 0) - evaluations.begin());
+	result += coins.at(find(evaluations.begin(), evaluations.end(), 1) - evaluations.begin());
+	result += coins.at(find(evaluations.begin(), evaluations.end(), 2) - evaluations.begin());
+	cout << result;
 }
