@@ -1,15 +1,14 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int algorithm(int num) {
-	string temp = to_string(num);
-	for (int i = 0; i < temp.length(); i++) {
-		if (temp[i] - '0' >= 5) temp[i] = 9 - (temp[i] - '0') + '0';
-	}
-	return stoi(temp);
-}
 int main() {
-	int num;
+	string num;
 	cin >> num;
-	cout << algorithm(num);
+	for (int i = 0; i < num.length(); i++) {
+		if (num[i] >= '5' && num[i] <= '9') {
+			if (i == 0 && num[i] == '9') continue;
+			num[i] = '9' - num[i] + '0';
+		}
+	}
+	cout << num;
 }
